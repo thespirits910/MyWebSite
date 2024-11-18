@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto">
+
+<head>
+  <script src="../assets/js/color-modes.js"></script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="" />
+  <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors" />
+  <meta name="generator" content="Hugo 0.122.0" />
+  <title>Sweet Sips - Sweet Sips & Treats Café</title>
+
+  <!-- Author: Ibrahim Aldulaimi
+    ISU Netid : dulaimi@iastate.edu
+    Date : 11 / 17 / 2024 
+  
+    
+    -->
+
+
+  <!-- bootstrap styles and scripts. -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+
+  <!-- iteme and price with button to add to cart -->
+  <link rel="stylesheet" href="add_to_cart.css">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Top Nav Bar Css -->
+  <link rel="stylesheet" href="top_nav_bar.css">
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(235, 231, 231, 0);
+      border: solid rgba(0, 0, 0, 0.15);
+      border-width: 1px 0;
+      box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1),
+        inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -0.125em;
+      fill: currentColor;
+    }
+
+    /* Centering the navbar content */
+    .navbar-nav {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .navbar-nav .nav-item {
+      text-align: center;
+    }
+
+    .navbar-expand-lg .navbar-nav {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      width: 100%;
+    }
+
+
+    navbar-dark .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,...");
+      
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+
+
+    /* Hide addtional text by default" */
+    .more-content {
+      display: none;
+    }
+
+    
+
+    /* footer style */
+    footer {
+      background-color: #000;
+      color: #fff;
+    }
+
+    footer .btn-outline-primary {
+      color: #fff;
+      border-color: #fff;
+    }
+
+    footer .btn-outline-primary:hover {
+      color: #000;
+      background-color: #fff;
+    }
+
+    footer .btn-outline-primary i {
+      font-size: 1.5rem;
+    }
+
+    
+  
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Sweet Sips & Treats Café</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="./index.html">Sweet Sips</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./index2.html">Treats</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="./about_us.html">About Us</a>
+          </li>
+          <li class="nav-item">
+    <a class="nav-link checkout-link" href="./checkout.html">Checkout</a>
+</li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <header data-bs-theme="dark">
+    <div class="collapse text-bg-dark" id="navbarHeader">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 col-md-7 py-4">
+            <h4>About Our Business</h4>
+            <p class="text-body-secondary">
+              At our small, locally-owned business, we take pride in crafting delicious, handmade cookies and refreshing
+              drinks that bring comfort and joy to our customers. Each of our products is made with care, using
+              high-quality ingredients to ensure the best flavors in every bite and sip. From our warm, freshly baked
+              cookies to our perfectly brewed teas, coffees, and lattes, we're committed to offering treats that feel
+              like home. Whether you're looking for a sweet snack or a cozy drink, we aim to create a welcoming
+              experience that supports a neighborhood tradition of community and care.
+            </p>
+          </div>
+          <div class="col-sm-4 offset-md-1 py-4">
+            <h4>Contact Us</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">on X</a></li>
+              <li><a href="#" class="text-white">Facebook</a></li>
+              <li><a href="#" class="text-white">Email</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor"
+            stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2"
+            viewBox="0 0 24 24">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
+            <circle cx="12" cy="13" r="4" />
+          </svg>
+          <strong>Sweet Sips Catalog</strong>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
+          aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        
+      </div>
+    </div>
+  </header>
+
+
+  <main>
+    <div class="album py-5 bg-body-tertiary">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+
+              <!-- first item -->
+              <img src=./product2_images/caramelMachiatto.png>
+              <div class="card-body">
+                <p id="description1" class="card-text">
+                  <b>Iced Caramel Macchiato</b><br><br>
+
+                  Enjoy a refreshing and indulgent treat with our <strong>Iced Caramel Macchiato</strong>, a perfect
+                  blend of <strong>espresso</strong>,
+                  <strong>cold milk</strong>, <strong>caramel drizzle</strong>, and <strong>ice</strong>.<br><br>
+
+                  <span id="more-text1" class="more-content" id="description1" class="card-text">
+                    Our <strong>espresso</strong> is made from high-quality coffee beans, finely ground and brewed under
+                    high pressure to
+                    create a rich, bold flavor. Combined with <strong>cold milk</strong>, which adds a creamy texture
+                    and smoothness,
+                    this drink is then layered with a generous drizzle of <strong>caramel sauce</strong>, made from
+                    <strong>caramelized sugar</strong> and
+                    <strong></strong>, for a sweet, buttery finish. Served over ice, it offers a cool and invigorating
+                    experience.<br><br>
+
+                    Pair this delightful drink with our <strong>M&M Cookies</strong> for a playful, colorful treat or
+                    enjoy it alongside
+                    our <strong>Double Chocolate Cookies</strong> for an extra-chocolatey indulgence. Whether you're
+                    enjoying it as a
+                    pick-me-up or a sweet escape, the Iced Caramel Macchiato provides a deliciously refreshing kick in
+                    every sip.<br>
+
+                  </span>
+                  <button id="view-more-btn1">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn1').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text1');
+                    var button = document.getElementById('view-more-btn1');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+                <p class="menu-item">Iced Caramel Macchiato <span class="price">$5.50</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.50)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.50)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.50)">+</button>
+                  <span class="total-price">$5.50</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+
+              </div>
+            </div>
+          </div>
+
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- second item -->
+              <img src=./product2_images/coconutLatte.png>
+              <div class="card-body">
+
+                <p id="description2" class="card-text">
+                  <b>Iced Coconut Matcha Latte</b><br><br>
+
+                  Transport yourself to a tropical paradise with our <strong>Iced Coconut Matcha Latte</strong>, a
+                  refreshing blend of
+                  <strong>smooth matcha green tea</strong> and <strong>cold coconut milk</strong>.<br><br>
+
+                  <span id="more-text2" class="more-content" id="description2" class="card-text">
+                    Our <strong>matcha green tea</strong> is made from finely ground green tea leaves, known for its
+                    vibrant color and
+                    earthy, umami flavor. Mixed with <strong>cold coconut milk</strong>, which adds a creamy texture and
+                    subtle sweetness
+                    derived from the grated meat of coconuts, this latte is both invigorating and indulgent. Served over
+                    ice, it provides a cool, refreshing twist to your day.<br><br>
+
+                    Pair this tropical delight with our <strong>Oatmeal Raisin Cookies</strong> for a wholesome,
+                    comforting treat or
+                    enjoy it alongside our <strong>Peanut Butter Cookies</strong> for a rich, nutty flavor. Whether
+                    you're savoring it as
+                    a cool afternoon refreshment or a unique pick-me-up, the Iced Coconut Matcha Latte offers a
+                    deliciously exotic experience in every sip.<br>
+
+                  </span>
+                  <button id="view-more-btn2">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn2').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text2');
+                    var button = document.getElementById('view-more-btn2');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+
+                <p class="menu-item">Iced Coconut Matcha Latte <span class="price">$5.70</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.70)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.70)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.70)">+</button>
+                  <span class="total-price">$5.70</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- third item -->
+              <img src=./product2_images/honeyCinLatte.png>
+              <div class="card-body">
+
+                <p id="description3" class="card-text">
+                  <b>Honey Cinnamon Latte</b><br><br>
+
+                  Experience the warmth and comfort of our <strong>Honey Cinnamon Latte</strong>, a perfect blend of
+                  rich <strong>espresso</strong>,
+                  <strong>steamed milk</strong>, <strong>honey</strong>, and a sprinkle of
+                  <strong>cinnamon</strong>.<br><br>
+
+                  <span id="more-text3" class="more-content" id="description3" class="card-text">
+                    Our <strong>espresso</strong> is made from finely ground coffee beans brewed under high pressure to
+                    deliver a robust
+                    and aromatic base. We add <strong>steamed milk</strong> for a creamy, smooth texture that balances
+                    the strong coffee
+                    flavors. Sweetened with <strong>pure honey</strong>, which adds a natural and mellow sweetness, and
+                    finished with a
+                    touch of <strong>cinnamon</strong>, this latte offers a delightful spiced flavor that warms the
+                    soul.<br><br>
+
+                    Pair this comforting drink with our <strong>M&M Cookies</strong> for a fun and colorful treat or
+                    enjoy it alongside our
+                    <strong>Double Chocolate Cookies</strong> for an indulgent chocolate experience. Whether you're
+                    looking for a cozy
+                    pick-me-up or a sweet treat to savor, the Honey Cinnamon Latte promises a deliciously warming and
+                    satisfying sip.<br>
+
+                  </span>
+                  <button id="view-more-btn3">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn3').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text3');
+                    var button = document.getElementById('view-more-btn3');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+
+                <p class="menu-item">Honey Cinnamon Latte <span class="price">$5.60</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.60)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.60)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.60)">+</button>
+                  <span class="total-price">$5.60</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- fourth item -->
+              <img src=./product2_images/LondonFog.png>
+              <div class="card-body">
+
+                <p id="description4" class="card-text">
+                  <b>London Fog</b><br><br>
+
+                  Warm up with our comforting <strong>London Fog</strong>, a carefully crafted blend featuring
+                  <strong>Earl Grey tea</strong>, <strong>steamed
+                    milk</strong>, and a hint of <strong>vanilla syrup</strong>.<br><br>
+
+                  <span id="more-text4" class="more-content" id="description4" class="card-text">
+                    Our <strong>Earl Grey tea</strong> is made with high-quality black tea leaves infused with aromatic
+                    <strong>bergamot oil</strong>,
+                    providing a distinctive and refreshing citrus flavor. Paired with <strong>steamed milk</strong>,
+                    which adds a creamy
+                    and velvety texture, and a touch of <strong>vanilla syrup</strong>, our London Fog creates a
+                    soothing and
+                    well-balanced beverage.<br><br>
+
+                    Pair this cozy drink with our <strong>Pumpkin Spice Cookies</strong> for a heartwarming autumn treat
+                    or enjoy it
+                    alongside our <strong>Oatmeal Raisin Cookies</strong> for a wholesome, comforting combination.
+                    Whether you're
+                    relaxing on a cool day or catching up with friends, the London Fog offers a refined and indulgent
+                    experience in every sip.<br>
+
+                  </span>
+                  <button id="view-more-btn4">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn4').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text4');
+                    var button = document.getElementById('view-more-btn4');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+                <p class="menu-item">London Fog <span class="price">$5.55</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.55)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.55)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.55)">+</button>
+                  <span class="total-price">$5.55</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- fifth item -->
+              <img src=./product2_images/pepHotChocolate.png>
+              <div class="card-body">
+
+                <p id="description5" class="card-text">
+                  <b>Peppermint Hot Chocolate</b><br><br>
+
+                  Delight in the festive flavors of our <strong>Peppermint Hot Chocolate</strong>, a rich and creamy
+                  beverage that brings
+                  comfort and cheer.<br><br>
+
+                  <span id="more-text5" class="more-content" id="description5" class="card-text">
+                    Made with <strong>premium cocoa powder</strong> and <strong>real milk</strong>, our hot chocolate is
+                    blended to perfection for a smooth,
+                    velvety texture. Infused with <strong>peppermint syrup</strong>, which combines <strong>peppermint
+                      extract</strong> with <strong>sugar</strong>, it
+                    delivers a refreshing minty kick. Topped with a generous swirl of <strong>whipped cream</strong> and
+                    a sprinkle of
+                    <strong>crushed candy canes</strong>, this drink offers a delightful mix of creamy, minty, and
+                    crunchy textures.<br><br>
+
+                    Pair this holiday favorite with our <strong>Pumpkin Spice Cookies</strong> for a cozy,
+                    autumn-inspired treat or enjoy
+                    it alongside our <strong>Peanut Butter Cookies</strong> for a rich, nutty contrast. Whether you’re
+                    celebrating the
+                    season or simply indulging, the Peppermint Hot Chocolate is sure to bring warmth and joy to every
+                    sip.<br>
+
+                  </span>
+                  <button id="view-more-btn5">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn5').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text5');
+                    var button = document.getElementById('view-more-btn5');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+                <p class="menu-item">Peppermint Hot Chocolate <span class="price">$5.65</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.65)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.65)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.65)">+</button>
+                  <span class="total-price">$5.65</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <!-- sixth item -->
+              <img src=./product2_images/pumpkinLatte.png>
+              <div class="card-body">
+
+                <p id="description6" class="card-text">
+                  <b>Iced Pumpkin Chai Latte</b><br><br>
+
+                  Celebrate the season with our <strong>Iced Pumpkin Chai Latte</strong>, a delightful blend of
+                  <strong>chai spiced tea</strong>, <strong>cold
+                    milk</strong>, and a hint of <strong>pumpkin</strong>, served over ice.<br><br>
+
+                  <span id="more-text6" class="more-content" id="description6" class="card-text">
+                    Our <strong>chai spiced tea</strong> features a rich mix of <strong>black tea</strong> and
+                    <strong>aromatic spices</strong> such as <strong>cinnamon</strong>, <strong>cardamom</strong>,
+                    <strong>cloves</strong>, and <strong>ginger</strong>, offering a warm and complex flavor profile.
+                    Combined with <strong>cold milk</strong> for a creamy
+                    texture and a touch of <strong>pumpkin puree</strong>, which adds a subtle sweetness and seasonal
+                    flair, this latte
+                    is served over ice for a refreshing yet cozy fall treat.<br><br>
+
+                    Pair this seasonal favorite with our <strong>Pumpkin Spice Cookies</strong> for a harmonious
+                    fall-inspired duo or
+                    enjoy it alongside our Double <strong>Chocolate Cookies</strong> for a rich, chocolatey contrast.
+                    Whether you're
+                    embracing the autumn vibes or simply indulging, the Iced Pumpkin Chai Latte delivers a deliciously
+                    spiced and refreshing experience in every sip.<br>
+
+                  </span>
+                  <button id="view-more-btn6">View More</button>
+                </p>
+
+                <!-- An event listener is added to the button. When the button is clicked, it checks the current display style of the more-text span. -->
+                <script>
+                  document.getElementById('view-more-btn6').addEventListener('click', function () {
+                    var moreText = document.getElementById('more-text6');
+                    var button = document.getElementById('view-more-btn6');
+
+                    if (moreText.style.display === 'none' || moreText.style.display === '') {
+                      moreText.style.display = 'inline';
+                      button.textContent = 'View Less';
+                    } else {
+                      moreText.style.display = 'none';
+                      button.textContent = 'View More';
+                    }
+                  });
+                </script>
+
+                <p class="menu-item">Iced Pumpkin Chai Latte <span class="price">$5.75</span></p>
+                <button class="add-to-cart-btn" onclick="showQuantityControls(this, 5.75)">Add to Cart</button>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(this, -1, 5.75)">-</button>
+                  <input class="quantity" type="number" value="1" min="1" max="9" readonly>
+                  <button class="quantity-btn" onclick="changeQuantity(this, 1, 5.75)">+</button>
+                  <span class="total-price">$5.75</span>
+                </div>
+
+
+                <!-- iteme and price with button to add to cart -->
+                <script src="add_to_cart.js"></script>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cart-summary">
+      <h3>Cart Summary</h3>
+      <div id="cart-items">
+        <!-- Cart items will be dynamically inserted here -->
+      </div>
+      <p><strong>Subtotal:</strong> $<span id="subtotal">0.00</span></p>
+      <p><strong>Tax (6%):</strong> $<span id="tax">0.00</span></p>
+      <p><strong>Total:</strong> $<span id="total">0.00</span></p>
+      <button class="checkout-btn" onclick="checkout()">Checkout</button>
+    </div>
+
+
+    <!-- checkout cart -->
+    <script src="checkout.js"></script>
+
+  </main>
+
+  <footer class="text-center py-5">
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-6">
+          <h5 class="mb-3"><strong>Sweet Sips & Treats Café</strong></h5>
+          <p class="mb-1">Location: 123 Main Street, Ames, Iowa, 50011</p>
+          <p class="mb-1">Telephone: (515) 555-1234</p>
+          <p class="mb-1">&copy; 2024 Sweet Sips & Treats Café. All rights reserved.</p>
+        </div>
+        <div class="col-md-6">
+          <h5 class="mb-3">Follow Us</h5>
+          <div class="d-flex justify-content-center mb-3">
+            <a href="https://www.facebook.com" target="_blank" class="btn btn-outline-light mx-2">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="btn btn-outline-light mx-2">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://x.com" target="_blank" class="btn btn-outline-light mx-2">
+              <i class="fab fa-x"></i>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  </footer>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
